@@ -20,6 +20,15 @@ const ParallaxBackground = () => {
             backgroundSize: "cover",
           }}
         />
+          {/* <motion.div
+          className="absolute inset-0 -z-40"
+          style={{
+            backgroundImage: "url(/assets/ai.png)",
+            backgroundPosition: "bottom",
+            backgroundSize: "cover",
+            y: mountain3Y,
+          }}
+        /> */}
         {/* Mountain Layer 3 */}
         <motion.div
           className="absolute inset-0 -z-40"
@@ -31,7 +40,7 @@ const ParallaxBackground = () => {
           }}
         />
         {/* Planets */}
-        <motion.div
+        {/* <motion.div
           className="absolute inset-0 -z-30"
           style={{
             backgroundImage: "url(/assets/planets.png)",
@@ -39,7 +48,7 @@ const ParallaxBackground = () => {
             backgroundSize: "cover",
             x: planetsX,
           }}
-        />
+        /> */}
         {/* Mountain Layer 2 */}
         <motion.div
           className="absolute inset-0 -z-20"

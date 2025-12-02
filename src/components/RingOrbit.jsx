@@ -4,6 +4,11 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Briefcase, ChevronLeft, ChevronRight } from "lucide-react";
+import image from "../../public/assets/image.png"
+import imagecopy from "../../public/assets/imagecopy.png"
+import app360 from "../../public/assets/app360.png"
+import aiinfra from "../../public/assets/aiinfra.png"
+
 
 
 const people = [
@@ -12,7 +17,7 @@ const people = [
     name: "J2W Offerletter",
     role: "we offer an intelligent solution in the form of OfferLetter, our unified, AI-powered platform designed to fulfill skill requirements swiftly and precisely.",
     email: "einstein@example.com",
-    profile: "https://www.joulestowatts.com/assets/offerletter-f4da36f7.png",
+    profile: image,
   },
   {
     id: 2,
@@ -30,42 +35,40 @@ const people = [
   },
   {
     id: 4,
-    name: "Nikola Tesla",
-    role: "Inventor & Engineer",
+    name: "J2W app",
+    role: "J2W Offerletter",
     email: "tesla@example.com",
-    profile: "https://upload.wikimedia.org/wikipedia/commons/d/d4/N.Tesla.JPG"
+    profile: imagecopy,
   },
   {
     id: 5,
-    name: "Charles Darwin",
-    role: "Naturalist & Biologist",
+    name: "Align360 App",
+    role: "360 Application",
     email: "darwin@example.com",
-    profile:
-      "https://hips.hearstapps.com/hmg-prod/images/gettyimages-79035252.jpg?crop=1xw:1.0xh;center,top&resize=640:*"
+    profile: app360,
   },
   {
     id: 6,
-    name: "Galileo Galilei",
-    role: "Astronomer & Physicist",
-    email: "galileo@example.com",
-    profile:
-      "https://res.cloudinary.com/aenetworks/image/upload/c_fill,ar_2,w_3840,h_1920,g_auto/dpr_auto/f_auto/q_auto:eco/v1/galileo-galilei-gettyimages-51246872?_a=BAVAZGDX0"
+    name: "AI Infusion Tech",
+    role: "AI infused development",
+    // email: "galileo@example.com",
+    profile: aiinfra,
   },
-  {
-    id: 7,
-    name: "Stephen Hawking",
-    role: "Theoretical Physicist",
-    email: "hawking@example.com",
-    profile: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg"
-  },
-  {
-    id: 8,
-    name: "Richard Feynman",
-    role: "Theoretical Physicist",
-    email: "feynman@example.com",
-     profile: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg"
+  // {
+  //   id: 7,
+  //   name: "Stephen Hawking",
+  //   role: "Theoretical Physicist",
+  //   email: "hawking@example.com",
+  //   profile: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg"
+  // },
+  // {
+  //   id: 8,
+  //   name: "Richard Feynman",
+  //   role: "Theoretical Physicist",
+  //   email: "feynman@example.com",
+  //    profile: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg"
      
-  }
+  // }
 ];
 
 const safeImage = (e) => {
@@ -128,7 +131,7 @@ export default function OrbitCarousel() {
   return (
     <div
       className="flex flex-col md:flex-row items-center justify-center
-       w-full p-4 gap-30 bg-white dark:bg-[#030412] transition-colors duration-300"   
+       w-full p-4  bg-white dark:bg-[#030412] transition-colors duration-300"   
 
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
@@ -205,7 +208,7 @@ export default function OrbitCarousel() {
 
       {/* RIGHT SIDE — ACTIVE PROFILE CARD */}
 
-  <div className="flex justify-center items-center w-full">
+  <div className="flex justify-center items-center w-full mb-3">
   <AnimatePresence mode="wait">
     <motion.div
       key={people[activeIndex].id}
@@ -213,12 +216,13 @@ export default function OrbitCarousel() {
       animate={{ opacity: 1, scale: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95, y: -20 }}
       transition={{ type: "spring", stiffness: 300, damping: 25 }}
-      className="
-        z-10 bg-white dark:bg-gray-950 shadow-2xl rounded-2xl p-6
-        w-[90%] md:w-[70%] lg:w-[50%] 
-        max-w-2xl
-        text-center border border-gray-200 dark:border-gray-800
-      "
+    className="
+  z-10 bg-white dark:bg-gray-950 shadow-2xl rounded-2xl 
+  w-[100%] md:w-[87%] lg:w-[62%]
+  max-w-2xl
+  text-center border border-gray-200 dark:border-gray-800
+"
+
     >
       <motion.img
         initial={{ opacity: 0, scale: 0.8 }}
@@ -245,11 +249,11 @@ export default function OrbitCarousel() {
       </div>
 
       <div className="flex items-center justify-center text-sm md:text-base text-gray-500 dark:text-gray-300 mt-1">
-        <Mail size={16} className="mr-1" />
-        {people[activeIndex].email}
+        {/* <Mail size={16} className="mr-1" /> */}
+        {/* {people[activeIndex].email} */}
       </div>
 
-      <div className="flex justify-center items-center mt-6 space-x-4">
+      <div className="flex justify-center items-center mt-6 space-x-4 mb-5">
         <button 
           onClick={prev} 
           className="p-2.5 rounded-full bg-gray-200 dark:bg-gray-900 shadow"

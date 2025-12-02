@@ -28,7 +28,7 @@ const HeroText = () => {
             variants={variants}
             initial="hidden"
             animate="visible"
-            transition={{ delay: 1.2 }}
+            transition={{ delay: 1 }}
           >
             At J2W, <br />  we manage
           </motion.p>
@@ -54,6 +54,27 @@ const HeroText = () => {
               all from a single intuitive dashboard designed
               for consultants.</p>
           </motion.p>
+          
+           <motion.p
+            className="text-5xl mt-5 font-medium text-neutral-300"
+            variants={variants}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: 1 }}
+          >
+             we are Transforming Possibilities:
+          </motion.p>
+           <motion.p
+            className="text-5xl mt-5 ml-5 font-medium text-neutral-300"
+            variants={variants}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: 1 }}
+          >
+            We’ve Integrated AI Across Our Ecosystem
+          </motion.p>
+
+          
         </div>
 
       </div>

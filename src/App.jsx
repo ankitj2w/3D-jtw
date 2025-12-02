@@ -21,7 +21,7 @@ const App = () => {
     <div className="container mx-auto max-w-7xl">
       <Navbar />
       <Hero />
-       {/* <TypewriterView /> */}
+       <TypewriterView />
        {/* <ParticleView /> */}
        
    
@@ -31,12 +31,12 @@ const App = () => {
       <About />
       <ThreeDCarousel />
      
-      <Projects />
-      <Logomarquee />
-      <Experiences />
+      {/* <Projects /> */}
+      {/* <Logomarquee /> */}
+      {/* <Experiences /> */}
       <Testimonial />
-      <Contact />
-      <Footer/>
+      {/* <Contact /> */}
+      {/* <Footer/> */}
     </div>
   );
 };
