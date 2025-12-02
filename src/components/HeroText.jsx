@@ -2,6 +2,7 @@ import { FlipWords } from "./FlipWords";
 import { motion } from "motion/react";
 import Spline from '@splinetool/react-spline';
 
+
 const HeroText = () => {
   const words = ["Clients", "Track Projects", "Collaborate"];
   const variants = {
@@ -62,7 +63,7 @@ const HeroText = () => {
             animate="visible"
             transition={{ delay: 1 }}
           >
-             we are Transforming Possibilities:
+             we are Transforming Possibilities: 
           </motion.p>
            <motion.p
             className="text-5xl mt-5 ml-5 font-medium text-neutral-300"

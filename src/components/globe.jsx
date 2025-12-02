@@ -3,7 +3,6 @@
 import createGlobe from "cobe";
 import { useMotionValue, useSpring } from "motion/react";
 import { useEffect, useRef } from "react";
-
 import { twMerge } from "tailwind-merge";
 
 const MOVEMENT_DAMPING = 1400;
@@ -41,7 +40,6 @@ export function Globe({ className, config = GLOBE_CONFIG }) {
   let width = 0;
   const canvasRef = useRef(null);
   const pointerInteracting = useRef(null);
-  const pointerInteractionMovement = useRef(0);
 
   const r = useMotionValue(0);
   const rs = useSpring(r, {
@@ -60,7 +58,6 @@ export function Globe({ className, config = GLOBE_CONFIG }) {
   const updateMovement = (clientX) => {
     if (pointerInteracting.current !== null) {
       const delta = clientX - pointerInteracting.current;
-      pointerInteractionMovement.current = delta;
       r.set(r.get() + delta / MOVEMENT_DAMPING);
     }
   };
@@ -88,6 +85,7 @@ export function Globe({ className, config = GLOBE_CONFIG }) {
     });
 
     setTimeout(() => (canvasRef.current.style.opacity = "1"), 0);
+
     return () => {
       globe.destroy();
       window.removeEventListener("resize", onResize);
@@ -97,19 +95,16 @@ export function Globe({ className, config = GLOBE_CONFIG }) {
   return (
     <div
       className={twMerge(
-        "mx-auto aspect-[1/1] w-full max-w-[600px]",
+        "mx-auto aspect-[1/1] w-full max-w-[900px]", // ⬅ Bigger globe container
         className
       )}
     >
       <canvas
         className={twMerge(
-          "size-[30rem] opacity-0 transition-opacity duration-500 [contain:layout_paint_size]"
+          "w-[900px] h-[900px] opacity-0 transition-opacity duration-500 [contain:layout_paint_size]" // ⬅ Bigger canvas
         )}
         ref={canvasRef}
-        onPointerDown={(e) => {
-          pointerInteracting.current = e.clientX;
-          updatePointerInteraction(e.clientX);
-        }}
+        onPointerDown={(e) => updatePointerInteraction(e.clientX)}
         onPointerUp={() => updatePointerInteraction(null)}
         onPointerOut={() => updatePointerInteraction(null)}
         onMouseMove={(e) => updateMovement(e.clientX)}

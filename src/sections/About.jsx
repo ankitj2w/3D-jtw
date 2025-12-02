@@ -13,7 +13,7 @@ const About = () => {
   About Us
 </h2>
 
-<div className="relative mt-8 md:mt-12 grid-black-color grid-3 min-h-[420px] md:min-h-[520px] flex items-center overflow-hidden rounded-3xl bg-gradient-to-br from-slate-50 via-white to-indigo-50 dark:from-gray-950 dark:via-[#0a0e1f] dark:to-[#0f172a]">
+<div className="relative mt-5 md:mt-12 grid-black-color grid-3 min-h-[420px] md:min-h-[520px] flex items-center overflow-hidden rounded-3xl bg-gradient-to-br from-slate-50 via-white to-indigo-50 dark:from-gray-950 dark:via-[#0a0e1f] dark:to-[#0f172a]">
   {/* Text Content - Left Side */}
   <div className="relative z-10 w-full max-w-xl pl-8 pr-12 md:pl-16 lg:pl-24">
     {/* Main Heading - Bold & Heroic */}
@@ -69,7 +69,8 @@ const About = () => {
   </div>
 
   {/* Globe - Position stays EXACTLY the same */}
-  <figure className="absolute left-[65%] md:left-[68%]  lg:left-[50%] top-[7%] pointer-events-none">
+<figure className="absolute left-[65%] md:left-[68%] lg:left-[50%] top-[1%]">
+
     <Globe />
   </figure>
 

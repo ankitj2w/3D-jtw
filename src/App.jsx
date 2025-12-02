@@ -14,21 +14,34 @@ import Logomarquee from "./components/Scroller";
 import GlowLine from "./components/GlowLine";
 import ThreeDCarousel from "./components/Carosol-3D";
 import Navbar from "./sections/Navbar";
+import SlideInView from "./components/TextAnimation";
+import AuroraView from "./components/AuraText";
+import Intro360 from "./components/Align360";
+import Portfolio4 from "./components/Align360";
+import Portfolio from "./components/Align360";
+
+
 
 
 const App = () => {
   return (
-    <div className="container mx-auto max-w-7xl">
+    // <div className="container mx-auto max-w-7xl">
+     <div className="w-full">
       <Navbar />
       <Hero />
-       <TypewriterView />
-       {/* <ParticleView /> */}
+       
+       <SlideInView />
+       <Portfolio />
+    
+     
        
    
       <OrbitCarousel />
+
       
      
       <About />
+      <AuroraView />
       <ThreeDCarousel />
      
       {/* <Projects /> */}

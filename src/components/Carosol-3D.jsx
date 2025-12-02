@@ -6,7 +6,7 @@ const FALLBACK = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" ' +
 const DEFAULT_IMAGES = [image, 'https://i.pinimg.com/1200x/6e/4c/39/6e4c394783c731f261f295e7ffd1deed.jpg', 'https://i.pinimg.com/1200x/1e/0c/1c/1e0c1c9c868bf07b4c27a275fb3087af.jpg', 'https://i.pinimg.com/736x/30/91/09/3091098a15810ddbbd58d5e007bc7207.jpg', 'https://i.pinimg.com/736x/07/cf/4a/07cf4a3a6f4144b4c7ac8e2ec5978dc1.jpg', 'https://i.pinimg.com/736x/5d/bf/f2/5dbff2b4c0fdcb9815e989f0db386f95.jpg'];
 const CARD_W = 280;
 const CARD_H = 340;
-const RADIUS = 380;
+const RADIUS = 480;
 const TILT_SENSITIVITY = 10;
 const DRAG_SENSITIVITY = 0.5;
 const INERTIA_FRICTION = 0.95;
@@ -28,11 +28,12 @@ const Card = React.memo(({
                  border border-gray-200 dark:border-gray-700 shadow-lg dark:shadow-gray-900/50
                  transition-transform duration-300 hover:scale-105 hover:shadow-2xl dark:hover:shadow-gray-900/70
                  hover:z-10" style={{
-    backfaceVisibility: 'hidden'
-  }}>
+        backfaceVisibility: 'hidden'
+      }}>
       <img src={src} alt="Carousel item" width={cardW} height={cardH} className="w-full h-full object-cover" loading="lazy" draggable="false" onError={e => {
-      e.currentTarget.src = FALLBACK;
-    }} />
+        e.currentTarget.src = FALLBACK;
+      }} />
+
     </div>
   </div>);
 Card.displayName = 'Card';
@@ -124,13 +125,13 @@ const ThreeDCarousel = React.memo(({
   return <div ref={parentRef} className="w-full h-full flex items-center justify-center overflow-hidden font-sans cursor-grab active:cursor-grabbing" style={{
     userSelect: 'none'
   }} onMouseDown={onMouseDown} onMouseMove={onMouseMove} onMouseUp={handleDragEnd} onMouseLeave={handleDragEnd} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={handleDragEnd}>
-        <div className="relative" style={{
+    <div className="relative" style={{
       perspective: 1500,
       perspectiveOrigin: 'center',
       width: Math.max(cardW * 1.5, radius * 2.2),
       height: Math.max(cardH * 1.8, radius * 1.5)
     }}>
-          <div ref={wheelRef} className="relative" style={{
+      <div ref={wheelRef} className="relative" style={{
         width: cardW,
         height: cardH,
         transformStyle: 'preserve-3d',
@@ -141,10 +142,11 @@ const ThreeDCarousel = React.memo(({
         marginLeft: -cardW / 2,
         marginTop: -cardH / 2
       }}>
-            {cards.map(card => <Card key={card.key} src={card.src} transform={card.transform} cardW={cardW} cardH={cardH} />)}
-          </div>
-        </div>
-      </div>;
+        {cards.map(card => <Card key={card.key} src={card.src} transform={card.transform} cardW={cardW} cardH={cardH} />)}
+      </div>
+
+    </div>
+  </div>;
 });
 ThreeDCarousel.displayName = 'ThreeDCarousel';
 export default ThreeDCarousel;

@@ -20,15 +20,15 @@ const ParallaxBackground = () => {
             backgroundSize: "cover",
           }}
         />
-          {/* <motion.div
-          className="absolute inset-0 -z-40"
+          <motion.div
+          className="absolute inset-0 -z-40 ml-200"
           style={{
-            backgroundImage: "url(/assets/ai.png)",
+            backgroundImage: "url(/assets/ai-skull.png)",
             backgroundPosition: "bottom",
             backgroundSize: "cover",
             y: mountain3Y,
           }}
-        /> */}
+        />
         {/* Mountain Layer 3 */}
         <motion.div
           className="absolute inset-0 -z-40"
