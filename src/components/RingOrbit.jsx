@@ -217,3 +217,212 @@ export default function OrbitCarousel() {
     </div>
   );
 }
+
+
+
+// "use client";
+
+// import React from "react";
+// import { motion, AnimatePresence } from "framer-motion";
+// import { ChevronLeft, ChevronRight } from "lucide-react";
+
+// import image from "../../public/assets/image.png";
+// import imagecopy from "../../public/assets/imagecopy.png";
+// import app360 from "../../public/assets/app360.png";
+// import aiinfra from "../../public/assets/aiinfra.png";
+
+// const products = [
+//   { id: 1, name: "J2W Offerletter", role: "AI-powered unified platform for swift skill fulfillment.", profile: image },
+//   { id: 2, name: "J2W Premier Lounge", role: "India's first AI-powered niche talent delivery platform.", profile: "https://www.joulestowatts.com/assets/Premier-6b2ce225.png" },
+//   { id: 3, name: "J2W Align360", role: "All-in-one consultant dashboard for project & client management.", profile: "https://www.joulestowatts.com/assets/Portal-14eb934d.png" },
+//   { id: 4, name: "J2W App", role: "Mobile-first talent & project ecosystem.", profile: imagecopy },
+//   { id: 5, name: "Align360 App", role: "Full 360° consultant workflow on mobile.", profile: app360 },
+//   { id: 6, name: "AI Infusion Tech", role: "AI-infused development & infrastructure solutions.", profile: aiinfra },
+// ];
+
+// const safeImage = (e) => {
+//   e.currentTarget.src = "https://placehold.co/160x160/1E1B4B/8B5CF6?text=J2W";
+// };
+
+// export default function Orbital3DRing() {
+//   const [activeIndex, setActiveIndex] = React.useState(0);
+
+//   // Orbital settings
+//   const containerRadius = 180; // Distance from center to card center
+//   const profileSize = 140;     // Card size when inactive
+//   const activeSize = 200;      // Active card size
+
+//   const getRotation = (index) => {
+//     return (index - activeIndex) * (360 / products.length);
+//   };
+
+//   const next = () => setActiveIndex((i) => (i + 1) % products.length);
+//   const prev = () => setActiveIndex((i) => (i - 1 + products.length) % products.length);
+
+//   React.useEffect(() => {
+//     const handleKey = (e) => {
+//       if (e.key === "ArrowLeft") prev();
+//       if (e.key === "ArrowRight") next();
+//     };
+//     window.addEventListener("keydown", handleKey);
+//     return () => window.removeEventListener("keydown", handleKey);
+//   }, []);
+
+//   const activeImgSrc = typeof products[activeIndex].profile === "string" 
+//     ? products[activeIndex].profile 
+//     : products[activeIndex].profile.src;
+
+//   return (
+//     <>
+//       <div className="min-h-screen bg-black flex items-center justify-center p-6">
+//         <div className="w-full max-w-7xl grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+
+//           {/* LEFT: Clean 2D Orbital Ring */}
+//           <div className="relative flex items-center justify-center h-[500px] sm:h-[600px]">
+//             <div 
+//               className="relative" 
+//               style={{ width: containerRadius * 2 + activeSize, height: containerRadius * 2 + activeSize }}
+//             >
+//               {/* Dashed Orbit Path */}
+//               <div
+//                 className="absolute rounded-full border-2 border-dashed border-purple-500/30"
+//                 style={{
+//                   width: containerRadius * 2,
+//                   height: containerRadius * 2,
+//                   top: "50%",
+//                   left: "50%",
+//                   transform: "translate(-50%, -50%)",
+//                 }}
+//               />
+
+//               {/* Orbiting Cards */}
+//               {products.map((item, i) => {
+//                 const rotation = getRotation(i);
+//                 const isActive = i === activeIndex;
+//                 const imgSrc = typeof item.profile === "string" ? item.profile : item.profile.src;
+
+//                 return (
+//                   <motion.div
+//                     key={item.id}
+//                     animate={{
+//                       rotate: rotation,
+//                       scale: isActive ? 1.4 : 1,
+//                     }}
+//                     transition={{ duration: 0.8, ease: [0.34, 1.56, 0.64, 1] }}
+//                     style={{
+//                       position: "absolute",
+//                       width: isActive ? activeSize : profileSize,
+//                       height: isActive ? activeSize : profileSize,
+//                       top: `calc(50% - ${(isActive ? activeSize : profileSize) / 2}px)`,
+//                       left: `calc(50% - ${(isActive ? activeSize : profileSize) / 2}px)`,
+//                       transformOrigin: "center",
+//                     }}
+//                     className="origin-center"
+//                   >
+//                     {/* Counter-rotate to keep image upright */}
+//                     <motion.div
+//                       animate={{ rotate: -rotation }}
+//                       transition={{ duration: 0.8, ease: [0.34, 1.56, 0.64, 1] }}
+//                       className="w-full h-full"
+//                     >
+//                       <motion.div
+//                         onClick={() => setActiveIndex(i)}
+//                         whileHover={{ scale: 1.1 }}
+//                         whileTap={{ scale: 0.95 }}
+//                         className="w-full h-full cursor-pointer"
+//                       >
+//                         <div className={`relative rounded-3xl overflow-hidden shadow-2xl border-4 transition-all ${
+//                           isActive 
+//                             ? "border-purple-500 ring-8 ring-purple-500/40 shadow-purple-500/60" 
+//                             : "border-white/30 hover:border-purple-400"
+//                         }`}>
+//                           <img
+//                             src={imgSrc}
+//                             alt={item.name}
+//                             onError={safeImage}
+//                             className="w-full h-full object-cover"
+//                           />
+//                           {isActive && (
+//                             <div className="absolute inset-0 bg-gradient-to-t from-purple-900/70 via-transparent to-transparent" />
+//                           )}
+//                         </div>
+
+//                         {/* Active Label */}
+//                         {isActive && (
+//                           <motion.p
+//                             initial={{ opacity: 0, y: 20 }}
+//                             animate={{ opacity: 1, y: 100 }}
+//                             exit={{ opacity: 0 }}
+//                             className="absolute -bottom-16 left-1/2 -translate-x-1/2 text-2xl font-bold text-purple-300 whitespace-nowrap"
+//                           >
+//                             {item.name}
+//                           </motion.p>
+//                         )}
+//                       </motion.div>
+//                     </motion.div>
+//                   </motion.div>
+//                 );
+//               })}
+
+//               {/* Navigation Arrows */}
+//               <button
+//                 onClick={prev}
+//                 className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-4 bg-white/10 backdrop-blur-md rounded-full hover:bg-white/20 transition-all"
+//               >
+//                 <ChevronLeft className="w-8 h-8 text-white" />
+//               </button>
+//               <button
+//                 onClick={next}
+//                 className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-4 bg-white/10 backdrop-blur-md rounded-full hover:bg-white/20 transition-all"
+//               >
+//                 <ChevronRight className="w-8 h-8 text-white" />
+//               </button>
+//             </div>
+//           </div>
+
+//           {/* RIGHT: Detail Card */}
+//           <div className="flex justify-center lg:justify-start">
+//             <AnimatePresence mode="wait">
+//               <motion.div
+//                 key={activeIndex}
+//                 initial={{ opacity: 0, x: 100 }}
+//                 animate={{ opacity: 1, x: 0 }}
+//                 exit={{ opacity: 0, x: -100 }}
+//                 transition={{ duration: 0.6, ease: "easeOut" }}
+//                 className="bg-gradient-to-br from-purple-900/40 via-black/90 to-black/70 backdrop-blur-2xl rounded-3xl p-10 max-w-lg border border-purple-500/50 shadow-2xl"
+//               >
+//                 <motion.div
+//                   initial={{ scale: 0.8, rotateY: 30 }}
+//                   animate={{ scale: 1, rotateY: 0 }}
+//                   transition={{ delay: 0.2, duration: 0.6 }}
+//                   className="relative"
+//                 >
+//                   <img
+//                     src={activeImgSrc}
+//                     alt={products[activeIndex].name}
+//                     onError={safeImage}
+//                     className="w-72 h-72 mx-auto rounded-3xl object-cover shadow-2xl border-4 border-purple-500/70"
+//                   />
+//                   <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-purple-800/50 to-transparent pointer-events-none" />
+//                 </motion.div>
+
+//                 <h2 className="text-5xl font-bold text-center mt-10 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+//                   {products[activeIndex].name}
+//                 </h2>
+//                 <p className="text-gray-300 text-center mt-8 text-lg leading-relaxed max-w-md mx-auto">
+//                   {products[activeIndex].role}
+//                 </p>
+
+//                 <div className="mt-12 text-center">
+//                   <button className="px-12 py-5 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold text-xl rounded-full transition-all hover:scale-110 shadow-2xl shadow-purple-600/50">
+//                     Explore Now
+//                   </button>
+//                 </div>
+//               </motion.div>
+//             </AnimatePresence>
+//           </div>
+//         </div>
+//       </div>
+//     </>
+//   );
+// }

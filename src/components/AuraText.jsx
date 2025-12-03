@@ -46,7 +46,7 @@ export default function AuroraView() {
         <h1 className="text-6xl font-bold">
           What{" "}
           <AuroraText speed={1} colors={["#38BDF8", "#3B82F6", "#EC4899"]}>
-            Align360
+            JoulesToWatts
           </AuroraText>{" "}
           offers
         </h1>
